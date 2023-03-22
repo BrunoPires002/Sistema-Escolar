@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Escola.Models.Matricula>
+
+@{
+    ViewData["Title"] = "Matriculas";
+}
+
+<h1>Matriculas</h1>
+
+<p>
+    <a asp-action="Create" type="button" class="btn btn-success">Cadastrar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMatricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aluno.NomeAluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso.NomeCurso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMatricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno.NomeAluno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.NomeCurso)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IdMatricula" type="button" class="btn btn-outline-info">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.IdMatricula" type="button" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

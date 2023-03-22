@@ -1,0 +1,39 @@
+﻿@model Escola.Models.Matricula
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>Delete</h1>
+
+<h3>Você tem certeza que deseja deletar a matricula de ID @Html.DisplayFor(model => model.IdMatricula)?</h3>
+<div>
+    <h4>Matricula</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdMatricula)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMatricula)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aluno.NomeAluno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aluno.NomeAluno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Curso.NomeCurso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Curso.NomeCurso)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdMatricula" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index">Voltar para Matriculas</a>
+    </form>
+</div>

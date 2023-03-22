@@ -1,0 +1,31 @@
+﻿@model Escola.Models.Matricula
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Matricula ( @Html.DisplayFor(model => model.IdMatricula) )</h4>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aluno.NomeAluno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aluno.NomeAluno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Curso.NomeCurso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Curso.NomeCurso)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMatricula" type="button" class="btn btn-outline-primary">Edit</a>
+    <a asp-action="Index">Voltar para Matriculas</a>
+</div>

@@ -1,0 +1,38 @@
+﻿@model Escola.Models.Aluno
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>Delete</h1>
+
+<h3>Você tem certeza que deseja deletar o aluno @Html.DisplayFor(model => model.NomeAluno)? </h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeAluno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeAluno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RgAluno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RgAluno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNascAluno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataNascAluno)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdAluno" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index">Voltar para Alunos</a>
+    </form>
+</div>

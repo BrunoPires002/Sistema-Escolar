@@ -1,0 +1,48 @@
+﻿@model Escola.Models.Aluno
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Aluno ( @Html.DisplayFor(model => model.NomeAluno) )</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAluno" />
+            <div class="form-group">
+                <label asp-for="NomeAluno" class="control-label"></label>
+                <input asp-for="NomeAluno" class="form-control"/>
+                <span asp-validation-for="NomeAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RgAluno" class="control-label"></label>
+                <input asp-for="RgAluno" class="form-control" id="txtRG"/>
+                <span asp-validation-for="RgAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascAluno" class="control-label"></label>
+                <input asp-for="DataNascAluno" class="form-control" id="txtData" type="datetime"/>
+                <span asp-validation-for="DataNascAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para Alunos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $('#txtRG').mask('00.000.000-0', { placeholder: "__.___.___-_" });
+        $('#txtData').mask('00/00/0000', { placeholder: "__/__/____" });
+    </script>
+}
